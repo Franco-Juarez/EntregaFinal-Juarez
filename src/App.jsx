@@ -1,13 +1,10 @@
-import ItemListContainer from "./components/ItemListContainer"
-import NavBar from "./components/NavBar"
+import MainRouter from "./routes/MainRouter"
 
 const App = () => {
 
 return (
     <div>
-      <NavBar />
-      <ItemListContainer 
-      greeting={"Estamos trabajando en algo especial"}/>
+      <MainRouter />
     </div>
   )
 }
