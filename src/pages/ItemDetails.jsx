@@ -1,23 +1,19 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ItemDetailContainer } from "../components/ItemDetailContainer";
 import { Flex } from "@chakra-ui/react";
+import { doc, getDoc, getFirestore } from "firebase/firestore";
 
 export const ItemDetails = () => {
   const { itemId } = useParams();
   const [product, setProduct] = useState({});
 
   useEffect(() => {
-    axios
-      .get(`https://dummyjson.com/products/${itemId}`)
-      .then((res) => {
-        setProduct(res.data);
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    const db = getFirestore();
+    const productItem = doc(db, "products", itemId);
+    getDoc(productItem).then((snapshot) => {
+      setProduct({ id: snapshot.id, ...snapshot.data() });
+    });
   }, [itemId]);
 
   return (

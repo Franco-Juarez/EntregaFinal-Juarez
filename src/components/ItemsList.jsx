@@ -12,7 +12,7 @@ import {
   ButtonGroup,
   Button,
 } from "@chakra-ui/react";
-import axios from "axios";
+import { collection, getDocs, getFirestore } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -22,30 +22,27 @@ const ItemsList = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios
-      .get("https://dummyjson.com/products")
-      .then((res) => {
-        setProducts(res.data.products);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    const db = getFirestore();
+    const productCollection = collection(db, "products");
+    getDocs(productCollection).then((snapshot) => {
+      setProducts(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
+    });
   }, []);
 
   return (
-    <Grid p={4} templateColumns="repeat(3, 1fr)" gap={4}>
+    <Grid w={"100%"} templateColumns="repeat(3, 1fr)" gap={4}>
       {products.map((product) => {
         return (
           <GridItem key={product.id}>
-            <Card maxW="sm">
+            <Card border={"3px solid #e53e3e"} maxW="sm">
               <CardBody>
                 <Image
-                  w={"350px"}
-                  h={"350px"}
+                  w={"400px"}
+                  h={"400px"}
                   m={"0 auto"}
                   objectFit={"cover"}
-                  src={product.thumbnail}
-                  alt="Green double couch with wooden legs"
+                  src={product.image}
+                  alt={product.altImage}
                   borderRadius="lg"
                 />
                 <Stack mt="6" spacing="3">

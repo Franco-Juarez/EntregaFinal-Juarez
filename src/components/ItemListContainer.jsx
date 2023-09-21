@@ -1,41 +1,48 @@
-import { HStack, Heading, VStack, Icon, Link, Text } from "@chakra-ui/react";
-import { BsFacebook, BsInstagram, BsTwitter } from "react-icons/bs";
+import { Box, Button, Heading, Text, VStack } from "@chakra-ui/react";
 import ItemsList from "./itemsList";
+import PropTypes from "prop-types";
 
-// eslint-disable-next-line react/prop-types
 const ItemListContainer = ({ greeting }) => {
   return (
     <VStack
+      py={8}
       gap={10}
-      backgroundColor={"orange.200"}
+      backgroundColor={"whiteAlpha.500"}
       w={"100%"}
       minH={"100vh"}
       alignItems={"center"}
       justifyContent={"center"}
     >
-      <Heading
-        pt={"2rem"}
-        width={{ base: "100%", lg: "80%" }}
-        fontSize={"4rem"}
-        textAlign={"center"}
-      >
-        {greeting}
-      </Heading>
-      <Text fontWeight={400} fontSize={"1.5rem"} as={"h5"}>
-        Seguinos en nuestras redes sociales
-      </Text>
-      <HStack gap={10}>
-        <Link href="#" isExternal>
-          <Icon fontSize={"2rem"} as={BsFacebook} />
-        </Link>
-        <Link href="#" isExternal>
-          <Icon fontSize={"2rem"} as={BsInstagram} />
-        </Link>
-        <Link href="#" isExternal>
-          <Icon fontSize={"2rem"} as={BsTwitter} />
-        </Link>
-      </HStack>
       <VStack>
+        <Heading
+          pt={"2rem"}
+          width={{ base: "100%", lg: "50%" }}
+          fontSize={"6rem"}
+          textAlign={"center"}
+        >
+          {greeting}
+        </Heading>
+        <Text fontSize={"1.5rem"}>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </Text>
+        <Box pt={4} display={"flex"} gap={8}>
+          <Button
+            color={"whiteAlpha.900"}
+            backgroundColor={"red.500"}
+            _hover={{ backgroundColor: "red.700" }}
+          >
+            2023 Collection
+          </Button>
+          <Button
+            _hover={{ backgroundColor: "blue.800" }}
+            color={"whiteAlpha.900"}
+            backgroundColor={"blue.600"}
+          >
+            Winter Sale
+          </Button>
+        </Box>
+      </VStack>
+      <VStack w={"1200px"}>
         <ItemsList />
       </VStack>
     </VStack>
@@ -43,3 +50,7 @@ const ItemListContainer = ({ greeting }) => {
 };
 
 export default ItemListContainer;
+
+ItemListContainer.propTypes = {
+  greeting: PropTypes.string,
+};

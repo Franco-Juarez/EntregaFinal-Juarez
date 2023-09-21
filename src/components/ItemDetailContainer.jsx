@@ -10,28 +10,39 @@ import {
   Button,
   Flex,
 } from "@chakra-ui/react";
+import CartButtonComponent from "./CartButtonComponent";
+import { useNavigate } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 export const ItemDetailContainer = ({ productData }) => {
   // eslint-disable-next-line react/prop-types
+
+  const navigate = useNavigate();
   return (
     <Card
-      w={"600px"}
-      minH={"300px"}
+      w={"600x"}
+      minH={"150px"}
       direction={{ base: "column", sm: "row" }}
       overflow="hidden"
       variant="outline"
+      border={"3px solid #e53e3e"}
     >
       <Image
         objectFit="cover"
-        maxW={{ base: "100%", sm: "200px" }}
-        src={productData.thumbnail}
+        maxW={{ base: "100%", sm: "40%" }}
+        src={productData.image}
         alt="Caffe Latte"
       />
 
       <Stack>
         <CardBody>
-          <Button mb={4}>{productData.category}</Button>
+          <Button
+            onClick={() => navigate(`/category/${productData.category}`)}
+            variant="solid"
+            colorScheme="blue"
+          >
+            {productData.category}
+          </Button>
           <Heading size="md">{productData.title}</Heading>
           <Text py="2">{productData.description}</Text>
         </CardBody>
@@ -43,6 +54,7 @@ export const ItemDetailContainer = ({ productData }) => {
           <Button width={"200px"} variant="solid" colorScheme="blue">
             Agregar al carrito
           </Button>
+          <CartButtonComponent />
         </CardFooter>
       </Stack>
     </Card>

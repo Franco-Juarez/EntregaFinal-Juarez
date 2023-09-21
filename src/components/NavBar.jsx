@@ -1,17 +1,24 @@
-import { HStack, UnorderedList, ListItem, Button } from "@chakra-ui/react";
+import {
+  HStack,
+  UnorderedList,
+  ListItem,
+  Button,
+  Image,
+} from "@chakra-ui/react";
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 import CartWidget from "./CartWidget";
 import { useState } from "react";
 import { Link as ReactRouterLink } from "react-router-dom";
 import { Link as ChakraLink } from "@chakra-ui/react";
+import logoNavBar from "../assets/logo-nav.svg";
 
 const NavBar = () => {
   const [isToggled, setIsToggled] = useState(false);
 
   return (
     <HStack
-      borderBottom={"2px solid #000"}
-      backgroundColor={"orange.200"}
+      borderBottom={"3px solid #e53e3e"}
+      backgroundColor={"whiteAlpha.500"}
       justifyContent={"space-between"}
     >
       <ChakraLink
@@ -21,7 +28,7 @@ const NavBar = () => {
         as={ReactRouterLink}
         to="/"
       >
-        WeSocks
+        <Image w={"80px"} src={logoNavBar} />
       </ChakraLink>
       <HStack
         gap={4}
@@ -41,8 +48,8 @@ const NavBar = () => {
         bottom={0}
         h={{ base: isToggled ? "100vh" : "auto", lg: "auto" }}
         textAlign={{ base: "right", lg: "center" }}
-        backgroundColor={"orange.200"}
-        borderLeft={"2px solid #000"}
+        backgroundColor={"whiteAlpha.500"}
+        borderLeft={"3px solid #e53e3e"}
         boxShadow={{
           base: isToggled ? "0 0 0 100vmax rgba(0, 0, 0, .5)" : "none",
           lg: "none",
@@ -56,28 +63,23 @@ const NavBar = () => {
           fontSize={20}
         >
           <ListItem listStyleType={"none"}>
-            <ChakraLink as={ReactRouterLink} to="/category/groceries">
-              Groceries
+            <ChakraLink as={ReactRouterLink} to="/category/incomes">
+              New Incomes!
             </ChakraLink>
           </ListItem>
           <ListItem listStyleType={"none"}>
-            <ChakraLink as={ReactRouterLink} to="/category/smartphones">
-              Smartphones
+            <ChakraLink as={ReactRouterLink} to="/category/gifts">
+              Gift Packs
             </ChakraLink>
           </ListItem>
           <ListItem listStyleType={"none"}>
-            <ChakraLink as={ReactRouterLink} to="/category/skincare">
-              Skincare
+            <ChakraLink as={ReactRouterLink} to="/category/collection">
+              Collection 2023
             </ChakraLink>
           </ListItem>
           <ListItem listStyleType={"none"}>
-            <ChakraLink as={ReactRouterLink} to="/category/laptops">
-              Laptops
-            </ChakraLink>
-          </ListItem>
-          <ListItem listStyleType={"none"}>
-            <ChakraLink as={ReactRouterLink} to="/category/fragrances">
-              Fragrances
+            <ChakraLink as={ReactRouterLink} to="/category/kids">
+              Kids
             </ChakraLink>
           </ListItem>
         </UnorderedList>
