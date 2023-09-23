@@ -1,4 +1,4 @@
-# PreEntrega1-Juarez
+# Primera Entrega de CoderHouse-Juarez
 
 Repositorio para la primera entrega del curso de React de CoderHouse
 
@@ -27,10 +27,6 @@ Más iconos y fuentes.
 Se aceptan contribuciones al proyecto. Si tenés alguna idea o sugerencia, no dudes contactarte!
 
 Gracias por tu tiempo e interés en el proyecto. Nos vemos pronto :star2:
-
-# PreEntrega2-Juarez
-
-Repositorio para la segunda entrega del curso de React de CoderHouse
 
 # Ampliación del Proyecto
 
@@ -70,10 +66,30 @@ El proyecto continuará evolucionando en las siguientes áreas:
 
 Se planea seguir personalizando el diseño de la plataforma para hacerla aún más atractiva y única. Además, le voy a sumar nuevas funcionalidades, características y contenido personalizado.
 
+# EntregaFinal:
+
+En esta entrega final incorporé nuevas funcionalidades y refactoricé el código para optimizar el proyecto.
+
+# Firebase:
+
+En esta nueva versión, utilicé las funcionalidades de Firebase para crear una pequeña base de datos con la cual emulé la carga y el filtrado de productos en un e-commerce. Por otro lado, cada tarjeta contiene un botón con el cual se puede acceder los detalles de cada producto según el id del mismo.
+
+# Contador en el carrito de compras
+
+A su vez, incorporé un contador para agregar productos en un carrito y emular el funcionamiento de un e-commerce. Esta funcionalidad la construí a partir del hook useContext para disponer de los datos entre diferentes componentes de la aplicación.
+
+# Error 404
+
+También sumé una página de error 404 para mejorar la experiencia del usuario y redirigirlo al home mediante el uso de React Router
+
+# CustomHooks
+
+Finalmente, refactoricé los llamados a Firebase utilizando dos hooks para limpiar la lógica y poder reutilizarla en diferentes componentes.
+
 # Contribuciones
 
-Se sigue recibiendo con entusiasmo cualquier contribución al proyecto. Si tenés ideas, sugerencias o querés colaborar, ¡no dudes en ponerte en contacto!
+Sigo recibiendo con entusiasmo cualquier contribución al proyecto. Si tenés ideas, sugerencias o querés colaborar, ¡no dudes en ponerte en contacto!
 
 Agradezco tu interés y tiempo dedicado a este proyecto. ¡Espero que estas mejoras en la navegabilidad y funcionalidad hagan que la experiencia de compra sea aún mejor! :rocket:
 
-![GIF de ejemplo](/src/assets/Gif%20Recording%20CoderHouse.gif)
+![GIF de ejemplo](/src/assets/CoderHouse.gif)
