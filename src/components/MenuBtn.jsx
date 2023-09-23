@@ -1,6 +1,6 @@
-import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
-import { Button } from "@chakra-ui/react";
 import { useState } from "react";
+import { Button } from "@chakra-ui/react";
+import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 
 const MenuBtn = () => {
   const [isToggled, setIsToggled] = useState(false);

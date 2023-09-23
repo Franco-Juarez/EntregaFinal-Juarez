@@ -1,3 +1,5 @@
+import { useState } from "react";
+import CartWidget from "./CartWidget";
 import {
   HStack,
   UnorderedList,
@@ -5,11 +7,9 @@ import {
   Button,
   Image,
 } from "@chakra-ui/react";
-import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
-import CartWidget from "./CartWidget";
-import { useState } from "react";
 import { Link as ReactRouterLink } from "react-router-dom";
 import { Link as ChakraLink } from "@chakra-ui/react";
+import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 import logoNavBar from "../assets/logo-nav.svg";
 
 const NavBar = () => {
@@ -22,7 +22,7 @@ const NavBar = () => {
       justifyContent={"space-between"}
     >
       <ChakraLink
-        pl={4}
+        pl={8}
         fontFamily={"heading"}
         fontSize={"2rem"}
         as={ReactRouterLink}
@@ -41,7 +41,8 @@ const NavBar = () => {
           lg: "center",
         }}
         alignItems={{ base: isToggled ? "flex-end" : "center", lg: "center" }}
-        p={4}
+        py={4}
+        px={8}
         position={{ base: isToggled ? "absolute" : "relative", lg: "relative" }}
         top={0}
         right={0}

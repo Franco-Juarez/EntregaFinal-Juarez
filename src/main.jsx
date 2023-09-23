@@ -1,11 +1,11 @@
 import React from "react";
 import * as ReactDOM from "react-dom/client";
-import App from "./App";
-import "@fontsource/poppins";
-import "@fontsource-variable/unbounded";
-import theme from "./theme";
 import { initializeApp } from "firebase/app";
 import { ChakraProvider } from "@chakra-ui/react";
+import App from "./App";
+import theme from "./theme";
+import "@fontsource/poppins";
+import "@fontsource-variable/unbounded";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBUpTkKjkE5zJNO7WoBlb8oHX1LpmtBTeQ",

@@ -1,6 +1,6 @@
-import { Button, Flex, Text } from "@chakra-ui/react";
 import { useContext, useState } from "react";
 import { CartContext } from "../context/CartContext";
+import { Button, Flex, Text } from "@chakra-ui/react";
 
 const CartButtonComponent = () => {
   const { cartItems, setCartItems } = useContext(CartContext);

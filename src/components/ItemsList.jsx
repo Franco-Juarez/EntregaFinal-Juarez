@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import {
   Grid,
   GridItem,
@@ -12,33 +13,22 @@ import {
   ButtonGroup,
   Button,
 } from "@chakra-ui/react";
-import { collection, getDocs, getFirestore } from "firebase/firestore";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import useCollection from "../hooks/useCollection";
 
 const ItemsList = () => {
-  const [products, setProducts] = useState([]);
-
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const db = getFirestore();
-    const productCollection = collection(db, "products");
-    getDocs(productCollection).then((snapshot) => {
-      setProducts(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
-    });
-  }, []);
+  const { products } = useCollection("products", "allProducts");
 
   return (
     <Grid w={"100%"} templateColumns="repeat(3, 1fr)" gap={4}>
       {products.map((product) => {
         return (
           <GridItem key={product.id}>
-            <Card border={"3px solid #e53e3e"} maxW="sm">
-              <CardBody>
+            <Card border={"3px solid #e53e3e"}>
+              <CardBody minH={"500px"} p={4}>
                 <Image
-                  w={"400px"}
-                  h={"400px"}
+                  w={"100%"}
+                  h={"350px"}
                   m={"0 auto"}
                   objectFit={"cover"}
                   src={product.image}
@@ -59,11 +49,18 @@ const ItemsList = () => {
                   <Button
                     onClick={() => navigate(`/item/${product.id}`)}
                     variant="solid"
-                    colorScheme="blue"
+                    backgroundColor={"blue.600"}
+                    _hover={{ backgroundColor: "blue.800" }}
+                    color={"whiteAlpha.900"}
                   >
                     Details
                   </Button>
-                  <Button variant="ghost" colorScheme="blue">
+                  <Button
+                    variant="ghost"
+                    backgroundColor={"blue.600"}
+                    _hover={{ backgroundColor: "blue.800" }}
+                    color={"whiteAlpha.900"}
+                  >
                     Add to cart
                   </Button>
                 </ButtonGroup>

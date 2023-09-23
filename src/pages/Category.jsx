@@ -14,29 +14,12 @@ import {
   Button,
   VStack,
 } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
-import {
-  collection,
-  getDocs,
-  getFirestore,
-  query,
-  where,
-} from "firebase/firestore";
+import useCollection from "../hooks/useCollection";
 
 export const Category = () => {
   const { categoryId } = useParams();
-  const [products, setProducts] = useState([]);
+  const { products } = useCollection("products", categoryId);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const db = getFirestore();
-    const productCollection = collection(db, "products");
-    const q = query(productCollection, where("category", "==", categoryId));
-    console.log(q);
-    getDocs(q).then((snapshot) => {
-      setProducts(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
-    });
-  }, [categoryId]);
 
   return (
     <VStack py={12} justifyContent={"center"} alignItems={"center"}>
@@ -70,11 +53,18 @@ export const Category = () => {
                     <Button
                       onClick={() => navigate(`/item/${product.id}`)}
                       variant="solid"
-                      colorScheme="blue"
+                      backgroundColor={"blue.600"}
+                      _hover={{ backgroundColor: "blue.800" }}
+                      color={"whiteAlpha.900"}
                     >
                       Details
                     </Button>
-                    <Button variant="ghost" colorScheme="blue">
+                    <Button
+                      variant="ghost"
+                      backgroundColor={"blue.600"}
+                      _hover={{ backgroundColor: "blue.800" }}
+                      color={"whiteAlpha.900"}
+                    >
                       Add to cart
                     </Button>
                   </ButtonGroup>
