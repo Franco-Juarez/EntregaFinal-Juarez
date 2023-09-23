@@ -20,6 +20,7 @@ export const ItemDetails = ({ productData }) => {
     <Card
       display={"flex"}
       justifyContent={"flex-start"}
+      w={"100%"}
       maxW={"1100px"}
       direction={{ base: "column", sm: "row" }}
       overflow="hidden"

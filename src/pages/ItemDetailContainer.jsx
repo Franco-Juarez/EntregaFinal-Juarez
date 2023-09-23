@@ -8,7 +8,13 @@ export const ItemDetailContainer = () => {
   const { product } = useItem("products", itemId);
 
   return (
-    <Flex alignItems={"center"} justifyContent={"center"} w={"100%"} h={"80vh"}>
+    <Flex
+      alignItems={"center"}
+      justifyContent={"center"}
+      w={"100%"}
+      minH={"80vh"}
+      p={8}
+    >
       <ItemDetails productData={product} />
     </Flex>
   );

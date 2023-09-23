@@ -10,6 +10,7 @@ const ItemListContainer = ({ greeting }) => {
   return (
     <VStack
       py={8}
+      px={4}
       gap={10}
       backgroundColor={"whiteAlpha.500"}
       w={"100%"}
@@ -21,15 +22,20 @@ const ItemListContainer = ({ greeting }) => {
         <Heading
           pt={"2rem"}
           width={{ base: "100%", lg: "50%" }}
-          fontSize={"6rem"}
+          fontSize={{ base: "2rem", lg: "6rem" }}
           textAlign={"center"}
         >
           {greeting}
         </Heading>
-        <Text fontSize={"1.5rem"}>
+        <Text textAlign={"center"} fontSize={{ base: "1rem", lg: "1.5rem" }}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
         </Text>
-        <Box pt={4} display={"flex"} gap={8}>
+        <Box
+          pt={4}
+          display={"flex"}
+          gap={8}
+          flexDirection={{ base: "column", lg: "row" }}
+        >
           <Button
             onClick={() => navigate(`/category/collection`)}
             color={"whiteAlpha.900"}
@@ -48,7 +54,7 @@ const ItemListContainer = ({ greeting }) => {
           </Button>
         </Box>
       </VStack>
-      <VStack w={"1200px"}>
+      <VStack w={{ base: "100%", lg: "1200px" }}>
         <ItemsList />
       </VStack>
     </VStack>

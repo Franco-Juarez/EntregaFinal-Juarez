@@ -24,7 +24,11 @@ export const Category = () => {
   return (
     <VStack py={12} justifyContent={"center"} alignItems={"center"}>
       <Heading textTransform={"capitalize"}>{categoryId}</Heading>
-      <Grid p={4} templateColumns="repeat(3, 1fr)" gap={4}>
+      <Grid
+        p={4}
+        templateColumns={{ base: "repeat(1, 1fr)", lg: "repeat(3, 1fr)" }}
+        gap={4}
+      >
         {products.map((product) => {
           return (
             <GridItem key={product.id}>

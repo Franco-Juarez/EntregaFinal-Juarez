@@ -20,7 +20,11 @@ const ItemsList = () => {
   const { products } = useCollection("products", "allProducts");
 
   return (
-    <Grid w={"100%"} templateColumns="repeat(3, 1fr)" gap={4}>
+    <Grid
+      w={"100%"}
+      templateColumns={{ base: "repeat(1, 1fr)", lg: "repeat(3, 1fr)" }}
+      gap={4}
+    >
       {products.map((product) => {
         return (
           <GridItem key={product.id}>

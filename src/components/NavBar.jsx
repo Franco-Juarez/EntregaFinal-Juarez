@@ -43,22 +43,24 @@ const NavBar = () => {
         alignItems={{ base: isToggled ? "flex-end" : "center", lg: "center" }}
         py={4}
         px={8}
-        position={{ base: isToggled ? "absolute" : "relative", lg: "relative" }}
+        position={{ base: isToggled ? "fixed" : "relative", lg: "relative" }}
         top={0}
         right={0}
         bottom={0}
         h={{ base: isToggled ? "100vh" : "auto", lg: "auto" }}
         textAlign={{ base: "right", lg: "center" }}
-        backgroundColor={"whiteAlpha.500"}
+        backgroundColor={"#FFFFFF"}
         borderLeft={"3px solid #e53e3e"}
         boxShadow={{
           base: isToggled ? "0 0 0 100vmax rgba(0, 0, 0, .5)" : "none",
           lg: "none",
         }}
+        zIndex={999}
       >
         <UnorderedList
-          p={isToggled ? 8 : 2}
-          gap={4}
+          p={isToggled ? 4 : 2}
+          pr={0}
+          gap={2}
           display={{ base: isToggled ? "flex" : "none", lg: "flex" }}
           flexDirection={{ base: "column", lg: "row" }}
           fontSize={20}
